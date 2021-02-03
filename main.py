@@ -44,11 +44,24 @@ def init_main():
     response = requests.get(url, headers = header, params = parameters)
     
     data = response.json()
-    resources = []
+    resources = [] 
+    #grab an artists id. Will be used to get a random top track and its data.
     for i in range(10):
-        resources.append(data['albums']['items'][i]['artists'][0]['id'])
+        resources.append([ data['albums']['items'][i]['artists'][0]['id'],
+        data['albums']['items'][i]['artists'][0]['name'],
+        data['albums']['items'][i]['available_markets'] ])
     artist_id = resources[random.randint(0,len(resources)-1)]
-    return render_template("index.html",resources=resources,art_id = artist_id) #will have to pass data in here.
+    
+    track_url = "https://api.spotify.com/v1/artists/{id}/top-tracks".format(id=artist_id[0])
+    path_param = {
+        'market': 'ES'
+    }
+    track_rep = requests.get(track_url,headers= header, params = path_param)
+    track_data = track_rep.json()
+    
+    
+    
+    return render_template("index.html",resources=resources,art_id = artist_id,track = track_data['tracks'][0]) #will have to pass data in here.
 
 app.run(
     port=int(os.getenv('PORT', 8080)),
