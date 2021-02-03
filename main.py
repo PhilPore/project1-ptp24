@@ -4,6 +4,7 @@ import flask
 from flask import Flask, render_template
 from dotenv import load_dotenv, find_dotenv
 import requests
+import random
 
 
 #load_dotenv(find_dotenv())
@@ -45,9 +46,9 @@ def init_main():
     data = response.json()
     resources = []
     for i in range(10):
-        resources.append(data['albums']['items'][i]['name'])
-    
-    return render_template("index.html",resources=resources) #will have to pass data in here.
+        resources.append(data['albums']['items'][i]['artists'][0]['id'])
+    artist_id = resources[random.randint(0,len(resources)-1)]
+    return render_template("index.html",resources=resources,art_id = artist_id) #will have to pass data in here.
 
 app.run(
     port=int(os.getenv('PORT', 8080)),
