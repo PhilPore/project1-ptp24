@@ -8,6 +8,15 @@
     <body>
      <p> Expertly done <br>
      <b id="Agent">Agent 47</b></p>
+     <ol>
+         {%for i in range(10)%}
+         <li>
+             {{ resources[i] }}
+         </li>
+        {%endfor%}
+
+         
+     </ol>
     
         
     </body>
