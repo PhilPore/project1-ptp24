@@ -54,14 +54,18 @@ def init_main():
     
     track_url = "https://api.spotify.com/v1/artists/{id}/top-tracks".format(id=artist_id[0])
     path_param = {
-        'market': 'ES'
+        'market': 'US'
     }
     track_rep = requests.get(track_url,headers= header, params = path_param)
     track_data = track_rep.json()
     
+    track = track_data['tracks'][random.randint(0,len(track_data['tracks'])-1)]
+    spot_resources = [track['name'],track['preview_url'],track['album']['images'][0]['url']]
     
-    
-    return render_template("index.html",resources=resources,art_id = artist_id,track = track_data['tracks'][0]) #will have to pass data in here.
+    return render_template("index.html",resources=resources,
+    art_id = artist_id,
+    track_res = spot_resources
+    ) #will have to pass data in here. Might be a good idea to look at the html and grab the resources on your own. I want to make it nice
 
 app.run(
     port=int(os.getenv('PORT', 8080)),
