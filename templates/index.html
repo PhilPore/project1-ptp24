@@ -3,10 +3,10 @@
     <head>
        <link rel="stylesheet" 
        href = {{ url_for('static', filename = 'style.css') }}/>
-       <h1 class="Title"> Music Discovery: Featuring </h1> 
+       <h1 class="Title"> Music Discovery </h1> 
     </head>
     <body>
-     <p> Expertly done <br>
+        <h1> Now featuring: </h1>
      <b id="Agent">{{ track_res[0] }}</b> by {{ art_id[1] }} <br></p>
      <p>
          <img class="Album_Img" src = {{ track_res[2] }} />
@@ -19,13 +19,7 @@
          Preview not available. Sorry. <br>
          {% endif %}
      </p>
-     <p>
-         {{ track_len }} <br>
-         {{ track_res[0] }} {{ track_res[1] }} {{ track_res[2] }}
-     </p>
-     
-    
-        
+
     </body>
     
     
