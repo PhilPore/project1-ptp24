@@ -1,7 +1,9 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+
 #Agent {
     color: #dfe0d1;
-    font-family: "Tahoma";
+    font-family: 'Roboto Condensed', sans-serif;
     font-size: 20px;
 }
 .Title {
@@ -19,7 +21,7 @@ body {
     text-align: center;
     color: #c0c0c0;
     background-color: #545662;
-    font-family: "Tahoma";
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 a {
