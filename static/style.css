@@ -1,12 +1,28 @@
 
 #Agent {
-    color: black;
-    background-color: red;
-    font-family: "Times New Roman";
+    color: #dfe0d1;
+    font-family: "Tahoma";
     font-size: 20px;
 }
 .Title {
     text-align: center;
     font-size: 60px;
     text-decoration: underline;
+}
+.Album_Img {
+  border: 2px solid #535e87;
+  border-radius: 0px;
+  width: 350px;
+  
+}
+body {
+    text-align: center;
+    color: #c0c0c0;
+    background-color: #545662;
+    font-family: "Tahoma";
+}
+
+a {
+    color: #dfe0d1;
+    
 }
