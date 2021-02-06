@@ -13,13 +13,17 @@
      </p>
      <p>
          {% if track_res[1] != None %}
-         <a href= {{ track_res[1] }}> Preview Link</a>
+         <audio controls>
+  
+          <source src= {{ track_res[1] }}>
+        Your browser does not support the audio element.
+        </audio>
          {% else %}
          
          Preview not available. Sorry. <br>
          {% endif %}
      </p>
-
+   
     </body>
     
     
