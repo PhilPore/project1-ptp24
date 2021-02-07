@@ -3,7 +3,7 @@
 CS490 project 1. Fun stuff. For music discovery.
 =======
 ## Externals/APIs used:
-..*Flask Framework
+*Flask Framework
 ..*Spotify API
 ..*Python Request Library 
 ..*Python OS library.
