@@ -1,5 +1,4 @@
-import os 
-import flask
+import os
 
 from flask import Flask, render_template
 from dotenv import load_dotenv, find_dotenv
