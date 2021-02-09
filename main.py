@@ -38,14 +38,14 @@ def init_main():
     
     url="https://api.spotify.com/v1/browse/new-releases"
     
-    parameters = {'limit': 10}
+    parameters = {'limit': 20}
     
     response = requests.get(url, headers = header, params = parameters)
     
     data = response.json()
     resources = [] 
     #grab an artists id. Will be used to get a random top track and its data.
-    for i in range(10):
+    for i in range(20):
         resources.append([ data['albums']['items'][i]['artists'][0]['id'],
         data['albums']['items'][i]['artists'][0]['name'],
         data['albums']['items'][i]['available_markets'] ])
