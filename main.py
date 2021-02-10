@@ -60,7 +60,7 @@ def init_main():
     
     track = track_data['tracks'][random.randint(0,len(track_data['tracks'])-1)]
     spot_resources = [track['name'],track['preview_url'],track['album']['images'][0]['url']]
-    a = 1
+    
     return render_template("index.html",resources=resources,
     art_id = artist_id,
     track_res = spot_resources
