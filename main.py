@@ -69,7 +69,8 @@ def init_main():
     
     geni = requests.get(geni_url, headers=geni_header,params=search_template)
     
-    geni_data = geni.json()['response']['hits'][0]['result']['url']
+    geni_data = geni.json()
+    geni_data=geni_data['response']['hits'][0]['result']['url']
     
     return render_template("index.html",resources=resources,
     art_id = artist_id,
