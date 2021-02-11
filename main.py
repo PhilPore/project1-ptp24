@@ -19,12 +19,9 @@ Auth_Req = requests.post(auth_url, {
 auth_tok = Auth_Req.json()['access_token']
 #print(auth_tok)
 
-header = {
-   'Authorization': "Bearer {}".format(auth_tok)
-}
 
-url="https://api.spotify.com/v1/browse/new-releases"
 
+gen_auth = os.getenv("Acc_Tok")
 
 
 
@@ -49,21 +46,35 @@ def init_main():
         resources.append([ data['albums']['items'][i]['artists'][0]['id'],
         data['albums']['items'][i]['artists'][0]['name'],
         data['albums']['items'][i]['available_markets'] ])
+    
     artist_id = resources[random.randint(0,len(resources)-1)]
     
     track_url = "https://api.spotify.com/v1/artists/{id}/top-tracks".format(id=artist_id[0])
+    
     path_param = {
         'market': 'US'
     }
+    
     track_rep = requests.get(track_url,headers= header, params = path_param)
+    
     track_data = track_rep.json()
     
     track = track_data['tracks'][random.randint(0,len(track_data['tracks'])-1)]
+    
     spot_resources = [track['name'],track['preview_url'],track['album']['images'][0]['url']]
+    
+    search_template ={ 'q': spot_resources[0] + ", " + artist_id[1] } #set up the genius api
+    geni_header = { 'Authorization': "Bearer {}".format(gen_auth)} #header for genius api
+    geni_url= "https://api.genius.com/search" #search feature needed.
+    
+    geni = requests.get(geni_url, headers=geni_header,params=search_template)
+    
+    geni_data = geni.json()['response']['hits'][0]['result']['url']
     
     return render_template("index.html",resources=resources,
     art_id = artist_id,
-    track_res = spot_resources
+    track_res = spot_resources,
+    genius_link = geni_data
     ) #will have to pass data in here. Might be a good idea to look at the html and grab the resources on your own. I want to make it nice
 
 app.run(
