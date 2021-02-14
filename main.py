@@ -22,7 +22,8 @@ auth_tok = Auth_Req.json()['access_token']
 
 
 gen_auth = os.getenv("Acc_Tok")
-
+gen_id = os.getenv("Gen_ID")
+gen_sec = os.getenv("Gen_Sec")
 
 
 app = Flask(__name__)
@@ -70,7 +71,12 @@ def init_main():
     
     geni = requests.get(geni_url, headers=geni_header,params=search_template)
     
-    geni_data = geni.json()['response']['hits'][0]['result']['url']
+    geni_data = geni.json()
+    
+    if len(geni_data['response']['hits']) == 0 or geni_data == None or geni_data['meta'] != 200:
+        geni_data = None
+    else:
+        geni_data['response']['hits'][0]['result']['url']
     
     return render_template("index.html",resources=resources,
     art_id = artist_id,

@@ -7,7 +7,12 @@
     </head>
     <body>
         <h1> Now featuring: </h1>
-     <b id="Agent">{{ track_res[0] }}</b> by {{ art_id[1] }} | <a href ={{ genius_link }} target="_blank" rel="noreferrer noopener"> Lyrics here. </a> <br></p>
+     <b id="Agent">{{ track_res[0] }}</b> by {{ art_id[1] }} |
+     {% if track_res[1] != None %} 
+     <a href ={{ genius_link }} target="_blank" rel="noreferrer noopener"> Lyrics here. </a> <br></p>
+     {% else %}
+     <meta http-equiv="refresh" content="0" />
+     {% endif %}
      <p>
          <img class="Album_Img" src = {{ track_res[2] }} />
      </p>
