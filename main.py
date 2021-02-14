@@ -63,8 +63,8 @@ def init_main():
     track = track_data['tracks'][random.randint(0,len(track_data['tracks'])-1)]
     
     spot_resources = [track['name'],track['preview_url'],track['album']['images'][0]['url']]
-    song = track['name'].split("(")
-    search_template ={ 'q': song[0] + " " + artist_id[1] }
+    song = track['name'].split("(feat")
+    search_template ={ 'q': song[0] + ", " + artist_id[1] }
     #search_template ={ 'q': artist_id[1] + " " + spot_resources[0] }#set up the genius api
     geni_header = { 'Authorization': "Bearer {}".format(gen_auth)} #header for genius api
     geni_url= "https://api.genius.com/search" #search feature needed.
