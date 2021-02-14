@@ -14,8 +14,9 @@
      Lyrics not available due to a cache problem. Reloading to a different song...
      <meta http-equiv="refresh" content="5" />
      {% endif %}
+     | <button onClick="window.location.reload();">Refresh Page</button>
      <p>
-         <img class="Album_Img" src = {{ track_res[2] }} /> <br> <button onClick="window.location.reload();">Refresh Page</button>
+         <img class="Album_Img" src = {{ track_res[2] }} /> 
      </p>
      <p>
          {% if track_res[1] != None %}
