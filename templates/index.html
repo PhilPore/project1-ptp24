@@ -11,11 +11,11 @@
      {% if track_res[1] != None %} 
      <a href ={{ genius_link }} target="_blank" rel="noreferrer noopener"> Lyrics here. </a> <br></p>
      {% else %}
-     Lyrics not available. Reloading to a different song...
+     Lyrics not available due to a cache problem. Reloading to a different song...
      <meta http-equiv="refresh" content="5" />
      {% endif %}
      <p>
-         <img class="Album_Img" src = {{ track_res[2] }} />
+         <img class="Album_Img" src = {{ track_res[2] }} /> <br> <button onClick="window.location.reload();">Refresh Page</button>
      </p>
      <p>
          {% if track_res[1] != None %}
