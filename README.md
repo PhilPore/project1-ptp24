@@ -16,11 +16,11 @@ Upon acquisition of the repo contents, one will need to run the main.py file, an
 Before this, one needs to set up both a spotify and genius developer account and save their credentials in a .env file. I'd recommend saving them to the same variable as I did , otherwise we might have a problem. Do note, this is also required for genius tokens.
 
 Add these to the .env file:
-* export CLI_ID="<value of your client id>"
-* export CLI_SEC="<your client secret value>"
-* export Acc_Tok="<The access token you generated from the genuis API management page>"
-* export Gen_ID="<your genius id value>"
-* export Gen_Sec="<your genius secret value>"
+* export CLI_ID="value of your client id"
+* export CLI_SEC="your client secret value"
+* export Acc_Tok="The access token you generated from the genuis API management page"
+* export Gen_ID="your genius id value"
+* export Gen_Sec="your genius secret value"
 
 ## Problems encountered
 =======
