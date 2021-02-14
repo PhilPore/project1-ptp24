@@ -8,14 +8,14 @@
     <body>
         <h1> Now featuring: </h1>
      <b id="Agent">{{ track_res[0] }}</b> by {{ art_id[1] }} |
-     {% if track_res[1] %} 
-     <a href ={{ genius_link }} target="_blank" rel="noreferrer noopener"> Lyrics here. </a> <br></p>
+     {% if track_res[1] != None %} 
+     <a href ={{ genius_link }} target="_blank" rel="noreferrer noopener"> Lyrics here. </a> | <button onClick="window.location.reload();">Refresh Page</button> <br></p>
      {% else %}
      Lyrics not available due to a cache problem. Reloading to a different song...
      <meta http-equiv="refresh" content="5" />
      {% endif %}
      <p>
-         <img class="Album_Img" src = {{ track_res[2] }} /> <br> 
+         <img class="Album_Img" src = {{ track_res[2] }} />
      </p>
      <p>
          {% if track_res[1] != None %}

@@ -76,7 +76,7 @@ def init_main():
     if len(geni_data['response']['hits']) == 0 or geni_data == None or geni_data['meta'] != 200: #either song doesnt exist yet or theres a cache miss.
         geni_data = None
     else:
-        geni_data['response']['hits'][0]['result']['url']
+       geni_data = geni_data['response']['hits'][0]['result']['url']
     
     return render_template("index.html",resources=resources,
     art_id = artist_id,
